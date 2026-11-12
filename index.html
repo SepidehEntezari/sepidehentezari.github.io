@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sepideh Entezari Maleki</title>
+<meta name="description" content="Sepideh Entezari Maleki, PhD candidate in Computing Science at the University of Alberta. Research on the reliability and evaluation of LLM-based text-to-SQL systems.">
+<meta property="og:title" content="Sepideh Entezari Maleki">
+<meta property="og:description" content="PhD candidate, University of Alberta. Reliability and evaluation of LLM-based text-to-SQL systems.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sepidehentezari.github.io/">
+<meta property="og:image" content="https://sepidehentezari.github.io/photo.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23006B8C'/%3E%3Ctext x='32' y='45' font-family='Georgia,serif' font-size='38' text-anchor='middle' fill='%23fff'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #FFFFFF;
+    --ink: #1D2733;
+    --muted: #5B6675;
+    --rule: #DDE3E8;
+    --accent: #006B8C;
+    --wash: #E8F2F5;
+    --margin-col: 9.5rem;
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #12191F;
+      --ink: #E4E9EE;
+      --muted: #9AA6B2;
+      --rule: #2A343D;
+      --accent: #63BCD8;
+      --wash: #17303A;
+      color-scheme: dark;
+    }
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 1.0625rem;
+    line-height: 1.62;
+    font-optical-sizing: auto;
+    text-rendering: optimizeLegibility;
+  }
+
+  a {
+    color: var(--accent);
+    text-decoration-line: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+    text-decoration-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  }
+  a:hover { text-decoration-color: var(--accent); }
+  a:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+    background: var(--wash);
+  }
+
+  .page {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 4.5rem 1.5rem 3rem;
+  }
+
+  /* Each block: section title in the left margin, content on the right (as in the CV). */
+  .row {
+    display: grid;
+    grid-template-columns: var(--margin-col) minmax(0, 1fr);
+    column-gap: 2rem;
+  }
+  .row + .row { margin-top: 2.75rem; }
+
+  .margin-title {
+    margin: 0;
+    padding-top: 0.15rem;
+    font-size: 1.0625rem;
+    font-weight: 600;
+    font-variant-caps: small-caps;
+    letter-spacing: 0.02em;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+
+  /* Header */
+  .portrait {
+    position: relative;
+    width: var(--margin-col);
+    aspect-ratio: 4 / 5;
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--wash);
+  }
+  .portrait img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .portrait .initials {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    font-size: 2.6rem;
+    color: var(--accent);
+  }
+
+  h1 {
+    margin: 0;
+    font-size: clamp(2.1rem, 1.6rem + 2.2vw, 2.85rem);
+    font-weight: 600;
+    line-height: 1.08;
+    letter-spacing: -0.012em;
+  }
+  .role {
+    margin: 0.55rem 0 0;
+    font-size: 1.125rem;
+    color: var(--muted);
+    line-height: 1.45;
+  }
+  .bio { margin: 1.25rem 0 0; max-width: 36em; }
+
+  .seeking {
+    margin: 1.1rem 0 0;
+    padding-left: 0.9rem;
+    border-left: 3px solid var(--accent);
+    max-width: 36em;
+  }
+
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem 1.4rem;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  /* Body text blocks */
+  .content > :first-child { margin-top: 0; }
+  .content p { margin: 0.75rem 0 0; max-width: 38em; }
+
+  .thread + .thread { margin-top: 1.1rem; }
+  .thread-title { font-weight: 600; }
+  .status { color: var(--muted); font-style: italic; }
+
+  h3 {
+    margin: 1.75rem 0 0.6rem;
+    font-size: 1rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--muted);
+  }
+  .content > h3:first-child { margin-top: 0; }
+
+  ol.pubs, ul.entries {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  ol.pubs > li + li, ul.entries > li + li { margin-top: 1.05rem; }
+
+  .pub-title { font-weight: 600; line-height: 1.4; }
+  .pub-title a { color: inherit; text-decoration-color: var(--rule); }
+  .pub-title a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  .authors, .venue { display: block; }
+  .authors b { font-weight: 600; }
+  .venue { font-style: italic; color: var(--muted); }
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1rem;
+    margin-top: 0.15rem;
+    font-size: 0.95rem;
+  }
+
+  .entry-head {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 0 1rem;
+  }
+  .entry-head strong { font-weight: 600; }
+  .when { color: var(--muted); font-variant-numeric: oldstyle-nums; white-space: nowrap; }
+  .entry-detail { display: block; color: var(--ink); max-width: 38em; }
+
+  footer {
+    margin-top: 3.5rem;
+    padding-top: 1.1rem;
+    border-top: 1px solid var(--rule);
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+
+  @media (max-width: 40rem) {
+    .page { padding-top: 2.5rem; }
+    .row { grid-template-columns: 1fr; }
+    .row + .row { margin-top: 2.25rem; }
+    .margin-title { margin-bottom: 0.6rem; }
+    .portrait { width: 7.5rem; margin-bottom: 1.25rem; }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    a { transition: text-decoration-color 120ms ease, color 120ms ease; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+
+  <header class="row">
+    <div>
+      <div class="portrait">
+        <span class="initials" aria-hidden="true">SE</span>
+        <img src="photo.jpg" alt="Portrait of Sepideh Entezari Maleki" onerror="this.remove()">
+      </div>
+    </div>
+    <div>
+      <h1>Sepideh Entezari Maleki</h1>
+      <p class="role">PhD candidate in Computing Science<br>University of Alberta, Edmonton</p>
+      <p class="bio">I study the reliability and evaluation of LLM-based text-to-SQL systems: when a generated SQL query can be trusted, where column errors come from, and how ambiguity in a database schema affects both models and their evaluation. I am supervised by <a href="https://webdocs.cs.ualberta.ca/~drafiei/">Prof. Davood Rafiei</a> in the Database Lab.</p>
+      <p class="seeking">I am looking for a research internship in large language models, NLP, or data systems.</p>
+      <ul class="links">
+        <li><a href="mailto:sentezar@ualberta.ca">sentezar@ualberta.ca</a></li>
+        <li><a href="cv.pdf">CV (PDF)</a></li>
+        <li><a href="https://scholar.google.com/citations?hl=en&amp;user=mTAWxHUAAAAJ">Google Scholar</a></li>
+        <li><a href="https://github.com/SepidehEntezari">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/sepideh-entezari/">LinkedIn</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="row" aria-labelledby="research">
+    <h2 class="margin-title" id="research">Research</h2>
+    <div class="content">
+      <div class="thread">
+        <span class="thread-title">Confidence estimation for text-to-SQL.</span>
+        Can we tell whether an LLM-generated SQL query is correct without a reference answer? We compare black-box methods, based on consistency across sampled queries, with white-box methods that use token probabilities in a SQL-aware way. Grounding queries in their execution results improves both.
+        <span class="status">Published at AAAI 2026.</span>
+      </div>
+      <div class="thread">
+        <span class="thread-title">Auditing column errors.</span>
+        A wrong column in a generated query is not always the model’s fault. We built a pipeline that separates errors caused by ambiguity in the database schema from errors caused by ambiguous questions and from genuine model errors, using multiple generations per question, LLM judges, and human annotation on the BIRD benchmark.
+        <span class="status">Under review.</span>
+      </div>
+      <div class="thread">
+        <span class="thread-title">Detecting schema ambiguity without questions.</span>
+        We are developing a method that finds column pairs storing the same information by testing transformations over the data, and comparing it with embedding-based and LLM-based detectors.
+        <span class="status">In preparation.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="publications">
+    <h2 class="margin-title" id="publications">Publications</h2>
+    <div class="content">
+      <h3>Published</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title"><a href="https://doi.org/10.1609/aaai.v40i38.40523">Confidence Estimation for Text-to-SQL in Large Language Models</a></span>
+          <span class="authors"><b>Sepideh Entezari Maleki</b>, Mohammadreza Pourreza, Davood Rafiei</span>
+          <span class="venue">AAAI Conference on Artificial Intelligence (AAAI), 2026</span>
+          <span class="pub-links">
+            <a href="https://ojs.aaai.org/index.php/AAAI/article/view/40523/44484">PDF</a>
+            <a href="https://arxiv.org/abs/2508.14056">arXiv</a>
+            <a href="https://github.com/SepidehEntezari/Text2SQL-Confidence">Code</a>
+          </span>
+        </li>
+        <li>
+          <span class="pub-title"><a href="https://doi.org/10.1145/3471158.3472230">A Novel Approach for Mining Team Leaders in Community Question Answering</a></span>
+          <span class="authors"><b>Sepideh Entezari Maleki</b>, Mahmood Neshati</span>
+          <span class="venue">ACM SIGIR International Conference on the Theory of Information Retrieval (ICTIR), 2021</span>
+          <span class="pub-links">
+            <a href="https://doi.org/10.1145/3471158.3472230">Paper</a>
+            <a href="https://github.com/SepidehEntezari/TeamLeader-sof">Code</a>
+          </span>
+        </li>
+        <li>
+          <span class="pub-title">Discovering Team Leader for a Software Development Project</span>
+          <span class="authors"><b>Sepideh Entezari Maleki</b>, Peyman Rostami, Mahmood Neshati</span>
+          <span class="venue">International Conference on Information and Knowledge Technology (IKT), 2019. In Persian.</span>
+        </li>
+      </ol>
+
+      <h3>Under review</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title">Is the Model to Blame? Auditing Column Errors in Text-to-SQL</span>
+          <span class="authors"><b>Sepideh Entezari Maleki</b>, Mohammadreza Pourreza, Davood Rafiei</span>
+          <span class="venue">2026</span>
+        </li>
+      </ol>
+
+      <!-- Preprints: uncomment this block once the arXiv links exist, and put the real IDs in the hrefs.
+      <h3>Preprints</h3>
+      <ol class="pubs">
+        <li>
+          <span class="pub-title"><a href="https://arxiv.org/abs/ARXIV_ID">Leader Finding: A New Variation of Expert Finding in Community Question Answering</a></span>
+          <span class="authors"><b>Sepideh Entezari Maleki</b>, Mahmood Neshati, Mahdi Dehghan</span>
+          <span class="venue">arXiv preprint, 2026</span>
+        </li>
+        <li>
+          <span class="pub-title"><a href="https://arxiv.org/abs/ARXIV_ID">Expert Finding Based on Negative Feedback in Community Question Answering</a></span>
+          <span class="authors"><b>Sepideh Entezari Maleki</b>, Mahmood Neshati</span>
+          <span class="venue">arXiv preprint, 2026</span>
+        </li>
+      </ol>
+      -->
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="experience">
+    <h2 class="margin-title" id="experience">Experience</h2>
+    <div class="content">
+      <ul class="entries">
+        <li>
+          <span class="entry-head"><span><strong>PhD Researcher</strong>, Database Lab, University of Alberta</span><span class="when">2022 – present</span></span>
+          <span class="entry-detail">LLM pipelines for text-to-SQL: multi-sample generation, LLM-as-judge with human validation, and evaluation sets built with human annotation.</span>
+        </li>
+        <li>
+          <span class="entry-head"><span><strong>Research Intern</strong>, NLP Lab, University of Alberta, with Scotiabank</span><span class="when">2022 – 2023</span></span>
+          <span class="entry-detail">Fraud detection with NLP methods. New features for the lab’s NLP Workbench (Python, Elasticsearch, Vue.js).</span>
+        </li>
+        <li>
+          <span class="entry-head"><span><strong>Researcher</strong>, Data Science Lab, Shahid Beheshti University</span><span class="when">2019 – 2021</span></span>
+          <span class="entry-detail">Defined leader finding, a variant of expert finding in community question answering, and built ranking methods for it on Stack Overflow data.</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="education">
+    <h2 class="margin-title" id="education">Education</h2>
+    <div class="content">
+      <ul class="entries">
+        <li>
+          <span class="entry-head"><span><strong>PhD, Computing Science</strong>, University of Alberta</span><span class="when">2022 – 2027 (expected)</span></span>
+          <span class="entry-detail">Thesis: <i>Reliability and Trustworthy Evaluation of LLM-based Text-to-SQL Systems</i></span>
+        </li>
+        <li>
+          <span class="entry-head"><span><strong>MSc, Computer Science and Engineering</strong>, Shahid Beheshti University</span><span class="when">2018 – 2021</span></span>
+          <span class="entry-detail">Thesis: <i>Finding the Right Leader for a Project in Community Question Answering Websites</i></span>
+        </li>
+        <li>
+          <span class="entry-head"><span><strong>BSc, Computer Engineering</strong>, University of Bonab</span><span class="when">2017</span></span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="teaching">
+    <h2 class="margin-title" id="teaching">Teaching</h2>
+    <div class="content">
+      <p>Teaching assistant for CMPUT 104 and CMPUT 105, introductory programming in Python, at the University of Alberta. Earlier, teaching assistant for Information Retrieval, Data Mining, and Advanced Software Engineering at Shahid Beheshti University.</p>
+    </div>
+  </section>
+
+  <footer class="row">
+    <div></div>
+    <div>Department of Computing Science, University of Alberta, Edmonton, Canada. Last updated November 2026.</div>
+  </footer>
+
+</main>
+</body>
+</html>
