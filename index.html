@@ -3,6 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#F7F3EB" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#15171A" media="(prefers-color-scheme: dark)">
 <title>Sepideh Entezari Maleki</title>
 <meta name="description" content="Sepideh Entezari Maleki, PhD candidate in Computing Science at the University of Alberta. Research on the reliability and evaluation of LLM-based text-to-SQL systems.">
 <meta property="og:title" content="Sepideh Entezari Maleki">
@@ -16,23 +18,23 @@
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper: #FFFFFF;
-    --ink: #1D2733;
-    --muted: #5B6675;
-    --rule: #DDE3E8;
+    --paper: #F7F3EB;
+    --ink: #1B232D;
+    --muted: #5E6570;
+    --rule: #E2D9CA;
     --accent: #006B8C;
-    --wash: #E8F2F5;
+    --wash: color-mix(in srgb, var(--accent) 9%, var(--paper));
     --margin-col: 9.5rem;
     color-scheme: light;
   }
   @media (prefers-color-scheme: dark) {
     :root {
-      --paper: #12191F;
-      --ink: #E4E9EE;
-      --muted: #9AA6B2;
-      --rule: #2A343D;
-      --accent: #63BCD8;
-      --wash: #17303A;
+      --paper: #15171A;
+      --ink: #ECE8E0;
+      --muted: #A39E95;
+      --rule: #2C2F34;
+      --accent: #6FC1D6;
+      --wash: color-mix(in srgb, var(--accent) 14%, var(--paper));
       color-scheme: dark;
     }
   }
@@ -70,8 +72,19 @@
   .page {
     max-width: 50rem;
     margin: 0 auto;
-    padding: 4.5rem 1.5rem 3rem;
+    padding: 1.75rem 1.5rem 3rem;
   }
+
+  .top-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.2rem 1.25rem;
+    margin: 0 0 2.5rem calc(var(--margin-col) + 2rem);
+    font-size: 0.95rem;
+  }
+  .top-nav a { color: var(--muted); text-decoration: none; }
+  .top-nav a:hover { color: var(--accent); text-decoration: underline; }
+  section[id], .row[aria-labelledby] { scroll-margin-top: 1.5rem; }
 
   /* Each block: section title in the left margin, content on the right (as in the CV). */
   .row {
@@ -87,12 +100,14 @@
     font-size: 1.0625rem;
     font-weight: 600;
     font-variant-caps: small-caps;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.07em;
     color: var(--accent);
     line-height: 1.4;
   }
 
   /* Header */
+  header.row { padding-bottom: 2.6rem; border-bottom: 1px solid var(--rule); }
+  ::selection { background: color-mix(in srgb, var(--accent) 22%, var(--paper)); }
   .portrait {
     position: relative;
     width: var(--margin-col);
@@ -100,6 +115,7 @@
     border-radius: 4px;
     overflow: hidden;
     background: var(--wash);
+    box-shadow: 0 1px 2px rgba(27, 35, 45, 0.06), 0 8px 24px -12px rgba(27, 35, 45, 0.25);
   }
   .portrait img {
     position: absolute;
@@ -153,6 +169,7 @@
   .content p { margin: 0.75rem 0 0; max-width: 38em; }
 
   .thread + .thread { margin-top: 1.1rem; }
+  .content p.infra { margin-top: 1.1rem; color: var(--muted); }
   .thread-title { font-weight: 600; }
   .status { color: var(--muted); font-style: italic; }
 
@@ -174,8 +191,21 @@
   ul.entries.compact > li + li { margin-top: 0.4rem; }
 
   .pub-title { font-weight: 600; line-height: 1.4; }
-  .pub-title a { color: inherit; text-decoration-color: var(--rule); }
-  .pub-title a:hover { color: var(--accent); text-decoration-color: var(--accent); }
+  .venue-tag {
+    display: inline-block;
+    margin-right: 0.5rem;
+    padding: 0.02rem 0.42rem;
+    border-radius: 3px;
+    background: var(--wash);
+    color: var(--accent);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    white-space: nowrap;
+    vertical-align: 0.12em;
+  }
+  .pub-title a { color: inherit; text-decoration: none; }
+  .pub-title a:hover { color: var(--accent); text-decoration: underline; text-decoration-color: var(--accent); }
   .authors, .venue { display: block; }
   .authors b { font-weight: 600; }
   .venue { font-style: italic; color: var(--muted); }
@@ -206,7 +236,8 @@
   }
 
   @media (max-width: 40rem) {
-    .page { padding-top: 2.5rem; }
+    .page { padding-top: 1.25rem; }
+    .top-nav { margin: 0 0 1.75rem; }
     .row { grid-template-columns: 1fr; }
     .row + .row { margin-top: 2.25rem; }
     .margin-title { margin-bottom: 0.6rem; }
@@ -215,12 +246,21 @@
   }
 
   @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
     a { transition: text-decoration-color 120ms ease, color 120ms ease; }
   }
 </style>
 </head>
 <body>
 <main class="page">
+
+  <nav class="top-nav" aria-label="Sections">
+    <a href="#research">Research</a>
+    <a href="#publications">Publications</a>
+    <a href="#experience">Experience</a>
+    <a href="#education">Education</a>
+    <a href="#honors">Honors</a>
+  </nav>
 
   <header class="row">
     <div>
@@ -262,6 +302,7 @@
         We are developing a method that finds column pairs storing the same information by testing transformations over the data, and comparing it with embedding-based and LLM-based detectors.
         <span class="status">In preparation.</span>
       </div>
+      <p class="infra">Across these projects, I run and fine-tune open-source LLMs on the GPU clusters of the Digital Research Alliance of Canada (Compute Canada).</p>
     </div>
   </section>
 
@@ -271,7 +312,7 @@
       <h3>Published</h3>
       <ol class="pubs">
         <li>
-          <span class="pub-title"><a href="https://doi.org/10.1609/aaai.v40i38.40523">Confidence Estimation for Text-to-SQL in Large Language Models</a></span>
+          <span class="pub-title"><span class="venue-tag">AAAI 2026</span><a href="https://doi.org/10.1609/aaai.v40i38.40523">Confidence Estimation for Text-to-SQL in Large Language Models</a></span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mohammadreza Pourreza, Davood Rafiei</span>
           <span class="venue">Proceedings of the AAAI Conference on Artificial Intelligence (AAAI), 40(38):32474–32482, 2026</span>
           <span class="pub-links">
@@ -281,7 +322,7 @@
           </span>
         </li>
         <li>
-          <span class="pub-title"><a href="https://doi.org/10.1145/3471158.3472230">A Novel Approach for Mining Team Leaders in Community Question Answering</a></span>
+          <span class="pub-title"><span class="venue-tag">ICTIR 2021</span><a href="https://doi.org/10.1145/3471158.3472230">A Novel Approach for Mining Team Leaders in Community Question Answering</a></span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mahmood Neshati</span>
           <span class="venue">ACM SIGIR International Conference on the Theory of Information Retrieval (ICTIR), pp. 281–285, 2021</span>
           <span class="pub-links">
@@ -290,7 +331,7 @@
           </span>
         </li>
         <li>
-          <span class="pub-title">Discovering Team Leader for a Software Development Project</span>
+          <span class="pub-title"><span class="venue-tag">IKT 2019</span>Discovering Team Leader for a Software Development Project</span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Peyman Rostami, Mahmood Neshati</span>
           <span class="venue">10th International Conference on Information and Knowledge Technology (IKT), 2019</span>
         </li>
@@ -299,7 +340,7 @@
       <h3>Under review</h3>
       <ol class="pubs">
         <li>
-          <span class="pub-title">Is the Model to Blame? Auditing Column Errors in Text-to-SQL</span>
+          <span class="pub-title"><span class="venue-tag">ARR 2026</span>Is the Model to Blame? Auditing Column Errors in Text-to-SQL</span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mohammadreza Pourreza, Davood Rafiei</span>
           <span class="venue">ACL Rolling Review, October 2026</span>
         </li>
@@ -308,7 +349,7 @@
       <h3>Preprints</h3>
       <ol class="pubs">
         <li>
-          <span class="pub-title">Leader Finding: A New Variation of Expert Finding in Community Question Answering</span>
+          <span class="pub-title"><span class="venue-tag">arXiv 2026</span>Leader Finding: A New Variation of Expert Finding in Community Question Answering</span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mahmood Neshati</span>
           <span class="venue">arXiv preprint, 2026. Extended version of the ICTIR 2021 paper above.</span>
         </li>
@@ -322,7 +363,6 @@
       <ul class="entries">
         <li>
           <span class="entry-head"><span><strong>PhD Researcher</strong>, Database Lab, University of Alberta</span><span class="when">2022 – present</span></span>
-          <span class="entry-detail">LLM pipelines for text-to-SQL: multi-sample generation, LLM-as-judge with human validation, and evaluation sets built with human annotation. Ran and fine-tuned open-source LLMs on the GPU clusters of the Digital Research Alliance of Canada (Compute Canada).</span>
         </li>
         <li>
           <span class="entry-head"><span><strong>Research Intern</strong>, Scotiabank (NLP Lab, University of Alberta)</span><span class="when">Sep 2022 – Apr 2023</span></span>
