@@ -171,6 +171,7 @@
     padding: 0;
   }
   ol.pubs > li + li, ul.entries > li + li { margin-top: 1.05rem; }
+  ul.entries.compact > li + li { margin-top: 0.4rem; }
 
   .pub-title { font-weight: 600; line-height: 1.4; }
   .pub-title a { color: inherit; text-decoration-color: var(--rule); }
@@ -187,10 +188,10 @@
   }
 
   .entry-head {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 0 1rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1.25rem;
+    align-items: baseline;
   }
   .entry-head strong { font-weight: 600; }
   .when { color: var(--muted); font-variant-numeric: oldstyle-nums; white-space: nowrap; }
@@ -210,6 +211,7 @@
     .row + .row { margin-top: 2.25rem; }
     .margin-title { margin-bottom: 0.6rem; }
     .portrait { width: 7.5rem; margin-bottom: 1.25rem; }
+    .entry-head { grid-template-columns: 1fr; }
   }
 
   @media (prefers-reduced-motion: no-preference) {
@@ -230,7 +232,7 @@
     <div>
       <h1>Sepideh Entezari Maleki</h1>
       <p class="role">PhD candidate in Computing Science<br>University of Alberta, Edmonton</p>
-      <p class="bio">I study the reliability and evaluation of LLM-based text-to-SQL systems: when a generated SQL query can be trusted, where column errors come from, and how ambiguity in a database schema affects both models and their evaluation. I am supervised by <a href="https://webdocs.cs.ualberta.ca/~drafiei/">Prof. Davood Rafiei</a> in the Database Lab.</p>
+      <p class="bio">I study the reliability and evaluation of large language models, with a focus on text-to-SQL: when a generated SQL query can be trusted, where column errors come from, and how ambiguity in a database schema affects both models and their evaluation. I am supervised by <a href="https://webdocs.cs.ualberta.ca/~drafiei/">Prof. Davood Rafiei</a> in the Database Lab.</p>
       <p class="seeking">I am looking for a research internship in large language models, NLP, or data systems, and I can start immediately.</p>
       <ul class="links">
         <li><a href="mailto:sentezar@ualberta.ca">sentezar@ualberta.ca</a></li>
@@ -252,7 +254,7 @@
       </div>
       <div class="thread">
         <span class="thread-title">Auditing column errors.</span>
-        A wrong column in a generated query is not always the model’s fault. We built a pipeline that separates errors caused by ambiguity in the database schema from errors caused by ambiguous questions and from genuine model errors, using multiple generations per question, LLM judges, and human annotation on the BIRD benchmark.
+        A wrong column in a generated query is not always the model’s fault. We built a pipeline that separates errors caused by ambiguity in the database schema from errors caused by ambiguous questions and from genuine model errors, using multiple generations per question, LLM judges, and human annotation on the BIRD benchmark. We find that most column substitutions made by one LLM on BIRD come from ambiguity rather than from the model, consistently across judges from three model families and in agreement with human annotators.
         <span class="status">Under review.</span>
       </div>
       <div class="thread">
@@ -271,7 +273,7 @@
         <li>
           <span class="pub-title"><a href="https://doi.org/10.1609/aaai.v40i38.40523">Confidence Estimation for Text-to-SQL in Large Language Models</a></span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mohammadreza Pourreza, Davood Rafiei</span>
-          <span class="venue">AAAI Conference on Artificial Intelligence (AAAI), 2026</span>
+          <span class="venue">Proceedings of the AAAI Conference on Artificial Intelligence (AAAI), 40(38):32474–32482, 2026</span>
           <span class="pub-links">
             <a href="https://ojs.aaai.org/index.php/AAAI/article/view/40523/44484">PDF</a>
             <a href="https://arxiv.org/abs/2508.14056">arXiv</a>
@@ -281,7 +283,7 @@
         <li>
           <span class="pub-title"><a href="https://doi.org/10.1145/3471158.3472230">A Novel Approach for Mining Team Leaders in Community Question Answering</a></span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mahmood Neshati</span>
-          <span class="venue">ACM SIGIR International Conference on the Theory of Information Retrieval (ICTIR), 2021</span>
+          <span class="venue">ACM SIGIR International Conference on the Theory of Information Retrieval (ICTIR), pp. 281–285, 2021</span>
           <span class="pub-links">
             <a href="https://doi.org/10.1145/3471158.3472230">Paper</a>
             <a href="https://github.com/SepidehEntezari/TeamLeader-sof">Code</a>
@@ -290,7 +292,7 @@
         <li>
           <span class="pub-title">Discovering Team Leader for a Software Development Project</span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Peyman Rostami, Mahmood Neshati</span>
-          <span class="venue">International Conference on Information and Knowledge Technology (IKT), 2019. In Persian.</span>
+          <span class="venue">10th International Conference on Information and Knowledge Technology (IKT), 2019</span>
         </li>
       </ol>
 
@@ -299,7 +301,7 @@
         <li>
           <span class="pub-title">Is the Model to Blame? Auditing Column Errors in Text-to-SQL</span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mohammadreza Pourreza, Davood Rafiei</span>
-          <span class="venue">ACL Rolling Review, 2026</span>
+          <span class="venue">ACL Rolling Review, October 2026</span>
         </li>
       </ol>
 
@@ -308,7 +310,7 @@
         <li>
           <span class="pub-title">Leader Finding: A New Variation of Expert Finding in Community Question Answering</span>
           <span class="authors"><b>Sepideh Entezari Maleki</b>, Mahmood Neshati</span>
-          <span class="venue">arXiv preprint, 2026. Extended version of the ICTIR 2021 paper.</span>
+          <span class="venue">arXiv preprint, 2026. Extended version of the ICTIR 2021 paper above.</span>
         </li>
       </ol>
     </div>
@@ -320,15 +322,15 @@
       <ul class="entries">
         <li>
           <span class="entry-head"><span><strong>PhD Researcher</strong>, Database Lab, University of Alberta</span><span class="when">2022 – present</span></span>
-          <span class="entry-detail">LLM pipelines for text-to-SQL: multi-sample generation, LLM-as-judge with human validation, and evaluation sets built with human annotation.</span>
+          <span class="entry-detail">LLM pipelines for text-to-SQL: multi-sample generation, LLM-as-judge with human validation, and evaluation sets built with human annotation. Ran and fine-tuned open-source LLMs on the GPU clusters of the Digital Research Alliance of Canada (Compute Canada).</span>
         </li>
         <li>
-          <span class="entry-head"><span><strong>Research Intern</strong>, Scotiabank (NLP Lab, University of Alberta)</span><span class="when">2022 – 2023</span></span>
-          <span class="entry-detail">Adverse-media screening for financial-crime risk: named entity recognition, entity linking, relation extraction (fine-tuned BERT, LLMs), and entity resolution.</span>
+          <span class="entry-head"><span><strong>Research Intern</strong>, Scotiabank (NLP Lab, University of Alberta)</span><span class="when">Sep 2022 – Apr 2023</span></span>
+          <span class="entry-detail">Adverse-media screening for financial-crime risk: named entity recognition, entity linking, relation extraction, and entity resolution to match people and companies in news text with records in the bank’s data. Fine-tuned BERT models and used LLMs for relation extraction, and compared them with classical classifiers. Added information-extraction modules to the lab’s NLP Workbench.</span>
         </li>
         <li>
           <span class="entry-head"><span><strong>Researcher</strong>, Data Science Lab, Shahid Beheshti University</span><span class="when">2019 – 2021</span></span>
-          <span class="entry-detail">Defined leader finding, a variant of expert finding in community question answering, and built ranking methods for it on Stack Overflow data.</span>
+          <span class="entry-detail">Defined leader finding, a new variant of expert finding in community question answering, and built ranking methods for it on Stack Overflow data. The project led to a paper at ACM SIGIR ICTIR 2021 and its extended version on arXiv.</span>
         </li>
       </ul>
     </div>
@@ -340,14 +342,15 @@
       <ul class="entries">
         <li>
           <span class="entry-head"><span><strong>PhD, Computing Science</strong>, University of Alberta</span><span class="when">2022 – 2027 (expected)</span></span>
-          <span class="entry-detail">Thesis: <i>Reliability and Trustworthy Evaluation of LLM-based Text-to-SQL Systems</i></span>
+          <span class="entry-detail">Thesis: <i>Reliability and Trustworthy Evaluation of LLM-based Text-to-SQL Systems</i>. Candidacy examination passed. GPA 3.8/4.0.</span>
         </li>
         <li>
           <span class="entry-head"><span><strong>MSc, Computer Science and Engineering</strong>, Shahid Beheshti University</span><span class="when">2019 – 2021</span></span>
-          <span class="entry-detail">Thesis: <i>Finding the Right Leader for a Project in Community Question Answering Websites</i></span>
+          <span class="entry-detail">Thesis: <i>Finding the Right Leader for a Project in Community Question Answering Websites</i>. Supervisor: Dr. Mahmood Neshati. GPA 4.0/4.0, ranked 2nd of 29 graduate students in the department.</span>
         </li>
         <li>
           <span class="entry-head"><span><strong>BSc, Computer Engineering</strong>, University of Bonab</span><span class="when">2015 – 2019</span></span>
+          <span class="entry-detail">GPA 3.94/4.0, ranked 2nd of 57 students in the faculty.</span>
         </li>
       </ul>
     </div>
@@ -357,6 +360,36 @@
     <h2 class="margin-title" id="teaching">Teaching</h2>
     <div class="content">
       <p>Teaching assistant for CMPUT 104 and CMPUT 105, introductory programming in Python, at the University of Alberta. Earlier, teaching assistant for Advanced Databases, Information Retrieval, Data Mining, Advanced Software Engineering, and Seminar at Shahid Beheshti University.</p>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="honors">
+    <h2 class="margin-title" id="honors">Honors</h2>
+    <div class="content">
+      <ul class="entries compact">
+        <li><span class="entry-head"><span>Bursary, RBC Borealis AI in Finance Summer School (competitive selection of PhD students)</span><span class="when">2026</span></span></li>
+        <li><span class="entry-head"><span>Travel grant, University of Alberta, to present at AAAI 2026</span><span class="when">2026</span></span></li>
+        <li><span class="entry-head"><span>Talent Bursary, Amii, to attend the Upper Bound AI conference, Edmonton</span><span class="when">2024, 2025</span></span></li>
+        <li><span class="entry-head"><span>Student grant, ACM SIGIR Conference</span><span class="when">2021</span></span></li>
+        <li><span class="entry-head"><span>Top 1% among 20,000+ participants in Iran’s national graduate entrance examination</span><span class="when">2018</span></span></li>
+        <li><span class="entry-head"><span>Most Outstanding Student Award, University of Bonab</span><span class="when">2017</span></span></li>
+        <li><span class="entry-head"><span>Finalist, National Computer Engineering Olympiad, Iran</span><span class="when">2017</span></span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row" aria-labelledby="service">
+    <h2 class="margin-title" id="service">Talks and service</h2>
+    <div class="content">
+      <ul class="entries compact">
+        <li><span class="entry-head"><span>Poster, RBC Borealis AI in Finance Summer School (AIFSS 2026), Vancouver</span><span class="when">Aug 2026</span></span></li>
+        <li><span class="entry-head"><span>Poster, AAAI Conference on Artificial Intelligence (AAAI 2026), Singapore</span><span class="when">Jan 2026</span></span></li>
+        <li><span class="entry-head"><span>Talk and poster, ACM SIGIR ICTIR Conference</span><span class="when">Jul 2021</span></span></li>
+        <li><span class="entry-head"><span>Poster, IEEE Information and Knowledge Technology Conference</span><span class="when">Jan 2020</span></span></li>
+        <li><span class="entry-head"><span>Reviewer, IEEE Transactions on Knowledge and Data Engineering (TKDE)</span><span class="when">2026</span></span></li>
+        <li><span class="entry-head"><span>Sub-reviewer, IEEE International Conference on Data Engineering (ICDE), with Prof. Davood Rafiei</span><span class="when">2026</span></span></li>
+        <li><span class="entry-head"><span>Reviewer, PeerJ Computer Science</span><span class="when">2025</span></span></li>
+      </ul>
     </div>
   </section>
 
